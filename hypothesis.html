@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hypothesis | SciDiscover</title>
     
+    <!-- Base tag for GitHub Pages compatibility -->
+    <base href="/">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- CSS Files -->
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/auth.css">
-    <link rel="stylesheet" href="../css/hypothesis.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/hypothesis.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
     <div class="app">
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <img src="../assets/images/logo.png" alt="SciDiscover" class="logo-image">
+                <img src="assets/images/logo.png" alt="SciDiscover" class="logo-image">
                 <span class="logo-text">SciDiscover</span>
             </div>
             
@@ -57,7 +60,7 @@
                     <!-- Brand Section -->
                     <div class="footer-brand">
                         <div class="footer-logo">
-                            <img src="../assets/images/logo.png" alt="SciDiscover" class="footer-logo-image">
+                            <img src="assets/images/logo.png" alt="SciDiscover" class="footer-logo-image">
                             <span class="footer-logo-text">SciDiscover</span>
                         </div>
                         <p class="footer-tagline">AI-powered research discovery connecting the unconnected across neuroscience, AI, medicine, and physics.</p>
@@ -129,10 +132,10 @@
     </div>
 
     <!-- JavaScript Files -->
-    <script src="../config/constants.js"></script>
-    <script src="../js/utils.js"></script>
-    <script src="../js/api.js"></script>
-    <script src="../js/auth.js"></script>
+    <script src="config/constants.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
     
     <script>
         // Logout handler
@@ -143,7 +146,7 @@
 
         // Get hypothesis ID from URL
         const urlParams = new URLSearchParams(window.location.search);
-        const hypothesisId = urlParams.get('id') || 'default'; // If no ID, load default/random
+        const hypothesisId = urlParams.get('id') || 'default';
 
         // Load hypothesis on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -400,7 +403,6 @@
         function generateExperiment(id) {
             API.generateExperiment(id)
                 .then(experiment => {
-                    // Reload hypothesis to show new experiment
                     loadHypothesis(id);
                 })
                 .catch(error => {
